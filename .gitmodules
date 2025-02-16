@@ -1,0 +1,3 @@
+[submodule "monotreme"]
+	path = monotreme
+	url = git@github.com:peterboyer/monotreme.git
