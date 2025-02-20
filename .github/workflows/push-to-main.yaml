@@ -14,7 +14,7 @@ jobs:
 
       - id: projects
         run: |
-          echo "projects=$(./monotreme/monotreme affected --json)" >> $GITHUB_OUTPUT
+          echo "projects=$(./monotreme/monotreme affected --ignore='*/monotreme/*' --json)" >> $GITHUB_OUTPUT
 
   build-affected:
     runs-on: ubuntu-latest
