@@ -38,7 +38,7 @@ jobs:
         with:
           node-version: 22
           cache: 'pnpm'
-          cache-dependency-path: ${{ matrix.project }}
+          cache-dependency-path: ${{ matrix.project }}/pnpm-lock.yaml
 
       - working-directory: ${{ matrix.project }}
         run: |
