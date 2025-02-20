@@ -3,12 +3,30 @@ on:
     branches:
       - main
 jobs:
-  release:
+  affected:
     runs-on: ubuntu-latest
+    outputs:
+      projects: ${{ steps.projects.outputs.projects }}
     steps:
       - uses: actions/checkout@v4
         with:
           submodules: true
 
+      - id: projects
+        run: |
+          echo "projects=$(./monotreme/monotreme affected --json)" >> $GITHUB_OUTPUT
+
+  build-affected:
+    runs-on: ubuntu-latest
+    needs: affected
+    strategy:
+      fail-fast: true
+      matrix:
+        project: ${{ fromJSON(needs.affected.outputs.projects) }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
       - run: |
-          ./monotreme/monotreme affected
+          pnpm install
+          pnpm build
+        working-directory: ${{ matrix.project }}
