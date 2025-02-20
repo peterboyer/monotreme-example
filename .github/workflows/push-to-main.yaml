@@ -13,6 +13,10 @@ jobs:
           submodules: true
           fetch-depth: 2
 
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 22
+
       - id: projects
         run: |
           echo "projects=$(./monotreme/monotreme affected --ignore='*/monotreme/*' --json)" >> $GITHUB_OUTPUT
@@ -26,9 +30,16 @@ jobs:
         project: ${{ fromJSON(needs.affected.outputs.projects) }}
     steps:
       - uses: actions/checkout@v4
+
       - uses: pnpm/action-setup@v4
         with:
           version: 10
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 22
+          cache: 'pnpm'
+          cache-dependency-path: ${{ matrix.project }}
+
       - working-directory: ${{ matrix.project }}
         run: |
           pnpm install
