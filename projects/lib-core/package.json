@@ -1,0 +1,13 @@
+{
+	"$schema": "https://json.schemastore.org/package.json",
+	"type": "module",
+	"scripts": {
+		"build": "exit",
+		"test": "vitest run"
+	},
+	"devDependencies": {
+		"@tsconfig/strictest": "^2.0.5",
+		"typescript": "^5.7.3",
+		"vitest": "^3.0.7"
+	}
+}

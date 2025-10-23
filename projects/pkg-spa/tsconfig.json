@@ -1,0 +1,11 @@
+{
+	"$schema": "https://json.schemastore.org/tsconfig.json",
+	"extends": ["./node_modules/@tsconfig/strictest/tsconfig.json"],
+	"include": ["./src", "./vite.config.ts", "./vite.setup.ts"],
+	"compilerOptions": {
+		"types": ["vitest/globals"],
+		"paths": {
+			"@org/lib-core": ["../lib-core/src/index.ts"]
+		}
+	}
+}
