@@ -38,10 +38,11 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 22
-          cache: 'pnpm'
+          cache: "pnpm"
           cache-dependency-path: ${{ matrix.project }}/pnpm-lock.yaml
 
       - working-directory: ${{ matrix.project }}
         run: |
           pnpm install
+          pnpm test
           pnpm build
