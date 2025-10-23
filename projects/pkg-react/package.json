@@ -1,6 +1,9 @@
 {
+	"$schema": "https://json.schemastore.org/package.json",
+	"type": "module",
 	"scripts": {
-		"build": "vite build"
+		"build": "vite build",
+		"test": "vitest run"
 	},
 	"dependencies": {
 		"react": "^19.0.0",
