@@ -5,7 +5,7 @@
 	"compilerOptions": {
 		"types": ["vitest/globals"],
 		"paths": {
-			"@org/lib-core": ["../lib-core/src/index.ts"]
+			"@org/pkg-core": ["../pkg-core/src/index.ts"]
 		}
 	}
 }
