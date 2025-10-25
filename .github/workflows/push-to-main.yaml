@@ -20,7 +20,8 @@ jobs:
 
       - id: projects
         run: |
-          echo "projects=$(./monotreme/monotreme affected --ignore='*/monotreme/*' --json)" >> $GITHUB_OUTPUT
+          (cd ./monotreme && pnpm install --prod)
+          echo "projects=$(./monotreme/monotreme --json)" >> $GITHUB_OUTPUT
 
   build-affected:
     runs-on: ubuntu-latest
