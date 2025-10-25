@@ -5,7 +5,7 @@
 	"compilerOptions": {
 		"types": ["vitest/globals"],
 		"paths": {
-			"@org/pkg-core": ["../pkg-core/src/index.ts"]
+			"@org/pkg-react": ["../pkg-react/src/index.ts"]
 		}
 	}
 }
